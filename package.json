@@ -1,0 +1,14 @@
+{
+  "name": "humambahoo",
+  "version": "1.0.0",
+  "description": "A personal portfolio website.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}
