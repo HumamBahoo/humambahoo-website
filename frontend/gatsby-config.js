@@ -1,6 +1,4 @@
-const isProd = process.env.NODE_ENV;
-
-if (isProd !== "production") {
+if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
