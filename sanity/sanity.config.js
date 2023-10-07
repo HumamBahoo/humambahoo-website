@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'humam-bahoo',
 
-  projectId: process.env.PROJECT_ID,
-  dataset: process.env.DATASET,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  dataset: process.env.SANITY_STUDIO_DATASET,
 
   plugins: [deskTool(), visionTool()],
 
