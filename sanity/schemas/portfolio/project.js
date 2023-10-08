@@ -38,10 +38,27 @@ export default {
       validation: (Rule) => Rule.required().error('An image is required.'),
     },
     {
-      name: 'video',
-      title: 'Video',
+      name: 'youtubeVideo',
+      title: 'YouTube Video',
       type: 'url',
-      description: 'A URL for a video demonstration for the project.',
+      description: 'A YouTube video URL demonstration for the project.',
+      validation: (Rule) =>
+        Rule.custom((urlString) => {
+          try {
+            const url = new URL(urlString)
+
+            if (url.hostname !== 'www.youtube.com') {
+              throw 'Not a valid YouTube URL.'
+            }
+            if (!url.searchParams.get('v') || url.pathname !== '/watch') {
+              throw 'Not a valid YouTube video.'
+            }
+
+            return true
+          } catch (error) {
+            return error
+          }
+        }),
     },
     {
       name: 'technologiesUsed',
