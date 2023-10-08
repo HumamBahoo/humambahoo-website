@@ -4,7 +4,12 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    // title, url, desc
+    siteTitle: "Humam Bahoo",
+    siteUrl: "https://www.humambahoo.com",
+    siteDescription: "A personal portfolio website for Humam Bahoo",
+    email: "humam.bahoo@gmail.com",
+    linkedIn: `https://www.linkedin.com/in/HumamBahoo/`,
+    gitHub: `https://www.github.com/HumamBahoo`,
   },
   plugins: [
     `gatsby-plugin-image`,
