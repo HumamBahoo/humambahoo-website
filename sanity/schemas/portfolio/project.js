@@ -43,21 +43,30 @@ export default {
       type: 'url',
       description: 'A YouTube video URL demonstration for the project.',
       validation: (Rule) =>
-        Rule.custom((urlString) => {
-          try {
-            const url = new URL(urlString)
+        Rule.custom((url) => {
+          let isValidUrl = true
+          let errorMsg = null
 
-            if (url.hostname !== 'www.youtube.com') {
-              throw 'Not a valid YouTube URL.'
-            }
-            if (!url.searchParams.get('v') || url.pathname !== '/watch') {
-              throw 'Not a valid YouTube video.'
-            }
+          // If URL is not empty it should be a valid URL for a youtube video:
+          if (url) {
+            try {
+              const urlObj = new URL(url)
 
-            return true
-          } catch (error) {
-            return error
+              if (urlObj.hostname !== 'www.youtube.com') {
+                isValidUrl = false
+                errorMsg = 'Not a valid YouTube URL.'
+              } else if (!urlObj.searchParams.get('v') || urlObj.pathname !== '/watch') {
+                isValidUrl = false
+                errorMsg = 'Not a valid YouTube URL for a video.'
+              }
+
+              isValidUrl = true
+            } catch (err) {
+              isValidUrl = false
+            }
           }
+
+          return errorMsg == null ? isValidUrl : errorMsg
         }),
     },
     {
