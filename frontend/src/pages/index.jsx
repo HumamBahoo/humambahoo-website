@@ -43,7 +43,7 @@ const HomePage = ({ data }) => {
       <section>
         <h2>{fullName}</h2>
 
-        <div className="about">
+        <div>
           <h3>Hello...</h3>
           <p>{introduction}</p>
         </div>

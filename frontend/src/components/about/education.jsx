@@ -16,7 +16,7 @@ const Education = ({ data }) => {
   const gpaOrSelectedCoursesExist = gpa !== null || _rawSelectedCourses !== null;
 
   return (
-    <div className="education">
+    <div>
       <h3>
         {program}, {degree}
       </h3>

@@ -4,7 +4,7 @@ const SkillSet = ({ data }) => {
   const { category, skillsList } = data;
 
   return (
-    <div className="skill-set">
+    <div>
       <h3>{category}</h3>
       <ul>
         {skillsList.map((skill, index) => (

@@ -24,7 +24,7 @@ const Footer = () => {
         Email Me <MdEmail />
       </a>
 
-      <div className="quick-links">
+      <div>
         <h2>Quick Links</h2>
         <nav>
           <Link to="/">Home</Link>
@@ -33,7 +33,7 @@ const Footer = () => {
         </nav>
       </div>
 
-      <div className="social-links">
+      <div>
         <h2>Find Me</h2>
 
         <nav>
@@ -61,12 +61,12 @@ const Footer = () => {
           </a>
         </nav>
 
-        <p className="technologies">
+        <p>
           Built with <span>Gatsby</span> | Styled with <span>Tailwind CSS</span> | Hosted on <span>Netlify</span>
         </p>
       </div>
 
-      <p className="copyrights">
+      <p>
         © {new Date().getFullYear()} <span>{siteTitle}</span>. All rights reserved.
       </p>
     </footer>

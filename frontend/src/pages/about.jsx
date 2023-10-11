@@ -59,7 +59,7 @@ const AboutPage = ({ data }) => {
     <Layout>
       {/* Work Experience */}
       {workExperienceList.length > 0 && (
-        <section className="work-experiences">
+        <section>
           <h2>Work Experience</h2>
           {workExperienceList.map((experience, idx) => (
             <WorkExperience
@@ -72,7 +72,7 @@ const AboutPage = ({ data }) => {
 
       {/* Education */}
       {educationList.length > 0 && (
-        <section className="education">
+        <section>
           <h2>Education</h2>
           {educationList.map((education, idx) => (
             <Education
@@ -85,7 +85,7 @@ const AboutPage = ({ data }) => {
 
       {/* Technical Knowledge and Skills */}
       {skillsSetList.length > 0 && (
-        <section className="skills">
+        <section>
           <h2>Technical Knowledge and Skills</h2>
           {skillsSetList.map((skillSet, idx) => (
             <SkillSet
@@ -98,7 +98,7 @@ const AboutPage = ({ data }) => {
 
       {/* Languages */}
       {languageList.length > 0 && (
-        <section className="languages">
+        <section>
           <h2>Languages</h2>
           {languageList.map((language, idx) => (
             <Language

@@ -1,17 +1,5 @@
 import React from "react";
 
-// {
-//   "id": string,
-//   "isPresent": bool,
-//   "jobTitle": string,
-//   "jobType": string,
-//   "location": string,
-//   "startDate": date string,
-//   "achievements": [string],
-//   "employer": string,
-//   "endDate": date string
-// }
-
 const WorkExperience = ({ data }) => {
   const { jobTitle, jobType, location, employer, isPresent, achievements } = data;
 
@@ -19,7 +7,7 @@ const WorkExperience = ({ data }) => {
   const endDate = new Date(data.endDate).toLocaleString("default", { year: "numeric", month: "short" });
 
   return (
-    <div className="work-experience">
+    <div>
       <h3>
         {jobTitle}
         {jobType !== "Full-Time" && ` (${jobType})`}

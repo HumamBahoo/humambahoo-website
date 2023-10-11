@@ -4,7 +4,7 @@ const Language = ({ data }) => {
   const { language, proficiency } = data;
 
   return (
-    <div className="language">
+    <div>
       <h3>{language}</h3>
       <p>{proficiency}</p>
     </div>
