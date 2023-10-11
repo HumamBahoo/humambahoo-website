@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-sanity`,
       options: {
