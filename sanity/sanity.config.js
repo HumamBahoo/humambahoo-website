@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-console.log()
+
 export default defineConfig([
   {
     name: `${process.env.SANITY_STUDIO_DATASET_PRODUCTION}-workspace`,
