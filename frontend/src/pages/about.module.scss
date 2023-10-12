@@ -1,0 +1,18 @@
+.containerCSS {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdGap);
+
+  section {
+    background-color: var(--secondaryBgColor);
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+
+    h2 {
+      font-size: var(--lgTextFontSize);
+      color: var(--primaryColor);
+      border-bottom: 1px solid var(--primaryColor);
+      text-transform: uppercase;
+    }
+  }
+}

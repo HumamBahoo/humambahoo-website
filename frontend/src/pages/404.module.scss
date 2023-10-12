@@ -1,0 +1,39 @@
+.containerCSS {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lgGap);
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  .messageCSS {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lgGap);
+    h2 {
+      color: var(--primaryColor);
+      font-size: var(--2xlTextFontSize);
+      font-weight: var(--semiBoldFontWeight);
+    }
+  }
+  .linkCSS {
+    display: flex;
+    align-items: center;
+    background-color: var(--primaryColor);
+    padding: var(--buttonPadding);
+    color: var(--primaryBgColor);
+    font-weight: var(--boldFontWeight);
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 1rem;
+
+    .iconCSS {
+      font-size: var(--mdTextFontSize);
+    }
+
+    &:hover {
+      background-color: var(--hoverColor);
+    }
+  }
+}

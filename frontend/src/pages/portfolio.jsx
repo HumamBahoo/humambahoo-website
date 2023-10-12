@@ -3,9 +3,11 @@ import Layout from "../components/layout";
 import { graphql } from "gatsby";
 import Project from "../components/portfolio/project";
 
+import { containerCSS } from "./portfolio.module.scss";
+
 export const query = graphql`
   query PortfolioPage {
-    projectsList: allSanityProject {
+    projectsList: allSanityProject(sort: { _createdAt: ASC }) {
       nodes {
         title
         slug {
@@ -14,7 +16,7 @@ export const query = graphql`
         description
         image {
           asset {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], width: 350)
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
       }
@@ -27,12 +29,14 @@ const PortfolioPage = ({ data }) => {
 
   return (
     <Layout>
-      {projectsList.map((project, idx) => (
-        <Project
-          key={idx}
-          data={project}
-        />
-      ))}
+      <div className={containerCSS}>
+        {projectsList.map((project, idx) => (
+          <Project
+            key={idx}
+            data={project}
+          />
+        ))}
+      </div>
     </Layout>
   );
 };

@@ -6,6 +6,8 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { MdOpenInBrowser } from "react-icons/md";
 
+import { containerCSS, photoCSS, summaryCSS, resumeButtonCSS, iconCSS } from "./index.module.scss";
+
 export const query = graphql`
   query MyQuery {
     homepage: sanityHomepage {
@@ -33,29 +35,31 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout>
-      <section>
-        <GatsbyImage
-          image={personalPhoto}
-          alt={`${fullName} - Photo`}
-        />
-      </section>
+      <div className={containerCSS}>
+        <section className={photoCSS}>
+          <GatsbyImage
+            image={personalPhoto}
+            alt={`${fullName} - Photo`}
+          />
+        </section>
 
-      <section>
-        <h2>{fullName}</h2>
+        <section className={summaryCSS}>
+          <div>
+            <h3>Hello, I'm...</h3>
+            <h2>{fullName}</h2>
+            <p>{introduction}</p>
+          </div>
 
-        <div>
-          <h3>Hello...</h3>
-          <p>{introduction}</p>
-        </div>
-
-        <a
-          href={resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          My Resume <MdOpenInBrowser />
-        </a>
-      </section>
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={resumeButtonCSS}
+          >
+            My Resume <MdOpenInBrowser className={iconCSS} />
+          </a>
+        </section>
+      </div>
     </Layout>
   );
 };

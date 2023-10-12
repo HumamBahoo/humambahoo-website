@@ -1,0 +1,68 @@
+.containerCSS {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+
+  section {
+    flex-basis: 50%;
+  }
+
+  .summaryCSS {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lgGap);
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: var(--smGap);
+
+      h2 {
+        font-size: var(--2xlTextFontSize);
+        color: var(--primaryColor);
+        text-transform: uppercase;
+        font-weight: var(--boldFontWeight);
+      }
+
+      h3 {
+        font-size: var(--mdTextFontSize);
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+
+    .resumeButtonCSS {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: var(--primaryColor);
+      padding: var(--buttonPadding);
+      gap: var(--smGap);
+      color: var(--primaryBgColor);
+      font-weight: var(--boldFontWeight);
+      text-transform: uppercase;
+      width: fit-content;
+      border-radius: 1rem;
+
+      .iconCSS {
+        font-size: var(--mdTextFontSize);
+      }
+
+      &:hover {
+        background-color: var(--hoverColor);
+      }
+    }
+  }
+}
+
+.photoCSS {
+  max-width: 400px;
+
+  img {
+    border-radius: 50%;
+  }
+}
