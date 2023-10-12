@@ -128,6 +128,7 @@ export default {
       title: 'Date',
       type: 'datetime',
       description: 'The date the project has been published.',
+      validation: (Rule) => Rule.required().error('A date must be entered.'),
     },
     {
       name: 'tags',
