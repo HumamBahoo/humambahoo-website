@@ -1,0 +1,15 @@
+.containerCSS {
+  background-color: var(--primaryBgColor);
+  color: var(--primaryTextColor);
+
+  .wrapperCSS {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    main {
+      margin: 0 1rem;
+      min-height: 400px;
+    }
+  }
+}

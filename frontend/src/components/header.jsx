@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 
+import { containerCSS, navbarCSS, logoCSS } from "./header.module.scss";
+
 const Header = () => {
   return (
-    <header>
-      <div>
+    <header className={containerCSS}>
+      <div className={logoCSS}>
         <Link to="/">
           <h1>
             H<span>B</span>
@@ -12,7 +14,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <nav>
+      <nav className={navbarCSS}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/portfolio">Portfolio</Link>

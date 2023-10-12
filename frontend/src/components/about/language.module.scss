@@ -1,0 +1,9 @@
+.containerCSS {
+  margin-top: 1rem;
+
+  h3 {
+    font-size: var(--regTextFontSize);
+    font-weight: var(--semiBoldFontWeight);
+    color: var(--secondaryColor);
+  }
+}

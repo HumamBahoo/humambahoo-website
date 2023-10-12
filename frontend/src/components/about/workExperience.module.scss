@@ -1,0 +1,25 @@
+.containerCSS {
+  margin-top: 1rem;
+
+  h3 {
+    font-size: var(--regTextFontSize);
+    font-weight: var(--semiBoldFontWeight);
+    color: var(--secondaryColor);
+  }
+
+  h4 {
+    font-size: var(--regTextFontSize);
+  }
+
+  .periodsCSS {
+    font-size: var(--regTextFontSize);
+  }
+
+  li {
+    display: list-item;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0.25rem;
+    color: var(--lightGray);
+  }
+}

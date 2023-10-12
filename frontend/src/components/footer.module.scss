@@ -1,0 +1,124 @@
+.containerCSS {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 2rem 0 1rem 0;
+  max-width: var(--maxPageWidth);
+  color: var(--primaryTextColor);
+  align-items: center;
+  gap: var(--smGap);
+
+  border-top: 1px solid var(--mediumGray);
+  border-bottom: 1px solid var(--mediumGray);
+}
+
+.emailButtonCSS {
+  background-color: var(--mediumGray);
+  color: var(--secondaryTextColor);
+
+  font-weight: var(--semiBoldFontWeight);
+  text-transform: uppercase;
+  text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--smGap);
+
+  padding: var(--buttonPadding);
+
+  border-left: 2px solid var(--primaryColor);
+  border-right: 2px solid var(--primaryColor);
+  border-radius: 0.5rem;
+
+  transition: var(--transitionSpeed);
+
+  .iconCSS {
+    font-size: var(--mdTextFontSize);
+  }
+
+  &:hover {
+    background-color: var(--darkGray);
+    color: var(--primaryColor);
+    padding: 0.5rem 5rem;
+  }
+}
+
+.quickLinksCSS {
+  display: flex;
+  flex-direction: column;
+  gap: var(--xsGap);
+
+  text-align: center;
+
+  h2 {
+    color: var(--primaryTextColor);
+    font-weight: var(--semiBoldFontWeight);
+    font-size: var(--mdTextFontSize);
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    color: var(--primaryColor);
+    font-weight: var(--semiBoldFontWeight);
+
+    a {
+      &:hover {
+        color: var(--hoverColor);
+      }
+    }
+  }
+}
+
+.findMeCSS {
+  display: flex;
+  flex-direction: column;
+  gap: var(--xsGap);
+
+  text-align: center;
+
+  h2 {
+    color: var(--primaryTextColor);
+    font-weight: var(--semiBoldFontWeight);
+    font-size: var(--mdTextFontSize);
+  }
+
+  nav {
+    color: var(--primaryColor);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: var(--smGap);
+
+    a {
+      &:hover {
+        color: var(--hoverColor);
+      }
+
+      .icon {
+        font-size: var(--lgTextFontSize);
+      }
+    }
+  }
+}
+
+.technologiesCSS {
+  text-align: center;
+
+  span {
+    color: var(--secondaryTextColor);
+    font-weight: var(--semiBoldFontWeight);
+    text-decoration: underline;
+    text-decoration-color: var(--primaryColor);
+  }
+}
+
+.copyrightsCSS {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}

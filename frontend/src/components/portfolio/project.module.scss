@@ -1,0 +1,39 @@
+.containerCSS {
+  min-height: 350px;
+  gap: 1rem;
+  border: 1px solid var(--darkGray);
+  border-radius: 0.5rem;
+  transition: var(--transitionSpeed);
+
+  img {
+    max-width: 420px;
+    height: 236px;
+    margin: 0 auto;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 1rem 1rem;
+
+    h3 {
+      font-size: var(--regTextFontSize);
+      font-weight: var(--semiBoldFontWeight);
+      color: var(--primaryColor);
+    }
+
+    p {
+      color: var(--lightGray);
+      font-size: var(--smTextFontSize);
+      overflow: auto;
+    }
+  }
+
+  &:hover {
+    background-color: var(--secondaryBgColor);
+    cursor: pointer;
+    filter: brightness(130%);
+  }
+}

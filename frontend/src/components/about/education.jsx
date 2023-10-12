@@ -1,5 +1,7 @@
 import React from "react";
 
+import { containerCSS, periodsCSS, linkCSS, detailsCSS, gpaCSS, coursesCSS } from "./education.module.scss";
+
 const Education = ({ data }) => {
   const { school, degree, program, gpa, location, _rawSelectedCourses } = data;
 
@@ -16,7 +18,7 @@ const Education = ({ data }) => {
   const gpaOrSelectedCoursesExist = gpa !== null || _rawSelectedCourses !== null;
 
   return (
-    <div>
+    <div className={containerCSS}>
       <h3>
         {program}, {degree}
       </h3>
@@ -25,19 +27,26 @@ const Education = ({ data }) => {
         {school} - {location}
       </h4>
 
-      <h4>
+      <h4 className={periodsCSS}>
         <time>
           {startDate} - {completionDate}
         </time>
       </h4>
 
       {gpaOrSelectedCoursesExist && (
-        <ul>
-          {gpa !== null && <li>GPA: {gpa.toFixed(1)}/4.0</li>}
+        <ul className={detailsCSS}>
+          {gpa !== null && (
+            <li className={gpaCSS}>
+              <span>GPA:</span> {gpa.toFixed(1)}/4.0
+            </li>
+          )}
 
           {_rawSelectedCourses !== null && (
-            <li>
-              Highlighted Courses:
+            <li className={coursesCSS}>
+              <p>
+                <span>Highlighted Courses:</span>
+              </p>
+
               <ul>
                 {_rawSelectedCourses.map((course, idx) => {
                   const { name, code, url } = course;
@@ -48,10 +57,10 @@ const Education = ({ data }) => {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className={linkCSS}
                       >
-                        {code}
+                        {code} - {name}
                       </a>
-                      {` - ${name}`}
                     </li>
                   );
                 })}

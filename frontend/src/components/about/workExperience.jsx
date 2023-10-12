@@ -1,5 +1,7 @@
 import React from "react";
 
+import { containerCSS, periodsCSS } from "./workExperience.module.scss";
+
 const WorkExperience = ({ data }) => {
   const { jobTitle, jobType, location, employer, isPresent, achievements } = data;
 
@@ -7,7 +9,7 @@ const WorkExperience = ({ data }) => {
   const endDate = new Date(data.endDate).toLocaleString("default", { year: "numeric", month: "short" });
 
   return (
-    <div>
+    <div className={containerCSS}>
       <h3>
         {jobTitle}
         {jobType !== "Full-Time" && ` (${jobType})`}
@@ -17,7 +19,7 @@ const WorkExperience = ({ data }) => {
         {employer} - {location}
       </h4>
 
-      <h4>
+      <h4 className={periodsCSS}>
         <time>
           {startDate} - {isPresent ? "Present" : endDate}
         </time>
