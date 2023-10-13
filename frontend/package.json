@@ -1,10 +1,14 @@
 {
   "name": "humambahoo-website-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "The frontend logic of the website.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gatsby develop"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "keywords": [],
   "author": "",
