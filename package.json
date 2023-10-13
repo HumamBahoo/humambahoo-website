@@ -1,13 +1,18 @@
 {
   "name": "humambahoo-website",
   "version": "1.0.0",
-  "description": "A personal portfolio website.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "My personal portfolio website.",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/HumamBahoo/humambahoo-website#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HumamBahoo/humambahoo-website.git"
+  },
+  "author": "Humam Bahoo <humam.bahoo@gmail.com",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/HumamBahoo/humambahoo-website/issues"
+  },
   "devDependencies": {
     "prettier": "^3.0.3"
   }
