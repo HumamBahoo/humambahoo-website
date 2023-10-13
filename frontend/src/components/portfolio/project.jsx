@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import { containerCSS } from "./project.module.scss";
+import { containerCSS, imgCSS, detailsCSS } from "./project.module.scss";
 
 const Project = ({ data }) => {
   const { title, description } = data;
@@ -15,12 +15,14 @@ const Project = ({ data }) => {
       to={`/portfolio/${slug}`}
       className={containerCSS}
     >
-      <GatsbyImage
-        image={image}
-        alt={`${title} - Image`}
-      />
+      <div className={imgCSS}>
+        <GatsbyImage
+          image={image}
+          alt={`${title} - Image`}
+        />
+      </div>
 
-      <div>
+      <div className={detailsCSS}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>

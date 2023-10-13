@@ -1,19 +1,25 @@
 .containerCSS {
-  min-height: 350px;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  border: 1px solid var(--darkGray);
+
+  background-color: var(--secondaryBgColor);
+
+  padding: 0.5rem;
   border-radius: 0.5rem;
+
   transition: var(--transitionSpeed);
 
-  img {
-    max-width: 420px;
-    height: 236px;
-    margin: 0 auto;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+  .imgCSS {
+    max-width: 450px;
+
+    img {
+      height: 250px;
+      border: 1px solid var(--darkGray);
+    }
   }
 
-  div {
+  .detailsCSS {
     display: flex;
     flex-direction: column;
     padding: 0 1rem 1rem 1rem;
@@ -32,8 +38,7 @@
   }
 
   &:hover {
-    background-color: var(--secondaryBgColor);
+    background-color: var(--mediumGray);
     cursor: pointer;
-    filter: brightness(130%);
   }
 }
