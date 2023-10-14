@@ -7,7 +7,6 @@ import { FaGithubSquare, FaLinkedin, FaYoutubeSquare } from "react-icons/fa";
 import {
   footerCSS,
   wrapperCSS,
-  detailsCSS,
   emailBtnCSS,
   emailIconCSS,
   navCSS,
@@ -43,8 +42,9 @@ const Footer = () => {
 
         <div className={navCSS}>
           <h2>Quick Links</h2>
+
           <nav>
-            <Link to="/">Home</Link>
+            <Link to="/#home">Home</Link>
             <Link to="/#about">About</Link>
             <Link to="/#portfolio">Portfolio</Link>
           </nav>

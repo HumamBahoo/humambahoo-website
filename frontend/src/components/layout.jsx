@@ -6,7 +6,10 @@ import { layoutCSS, wrapperCSS, mainCSS } from "./layout.module.scss";
 
 const Layout = ({ children }) => {
   return (
-    <div className={layoutCSS}>
+    <div
+      id="home"
+      className={layoutCSS}
+    >
       <Header />
 
       <div className={wrapperCSS}>
