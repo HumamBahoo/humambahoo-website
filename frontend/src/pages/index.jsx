@@ -1,11 +1,13 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Introduction from "../components/introduction";
 
-import { homepageCSS, aboutCSS, portfolioCSS } from "./index.module.scss";
+import { homepageCSS, toTopCSS } from "./index.module.scss";
 import About from "../components/about";
+import Portfolio from "../components/portfolio";
+import { MdArrowUpward } from "react-icons/md";
 
 const HomePage = ({ data }) => {
   const introductionDetails = data.introduction;
@@ -17,26 +19,41 @@ const HomePage = ({ data }) => {
     languageList: data.languageList.nodes,
   };
 
+  const projectsList = data.projectsList.nodes;
+
   return (
     <Layout>
       <div className={homepageCSS}>
-        <Introduction details={introductionDetails} />
+        {/* Introduction */}
+        <section id="introduction">
+          <Introduction details={introductionDetails} />
+        </section>
 
         {/* About */}
-        <div
-          id="about"
-          className={aboutCSS}
-        >
+        <section id="about">
           <About details={aboutDetails} />
-        </div>
+        </section>
+
+        {/* Back to the top */}
+        <Link
+          to={"/#home"}
+          className={toTopCSS}
+        >
+          <MdArrowUpward />
+        </Link>
 
         {/* Portfolio */}
-        <div
-          id="portfolio"
-          className={portfolioCSS}
+        <section id="portfolio">
+          <Portfolio details={projectsList} />
+        </section>
+
+        {/* Back to the top */}
+        <Link
+          to={"/#home"}
+          className={toTopCSS}
         >
-          <h1>Portfolio</h1>
-        </div>
+          <MdArrowUpward />
+        </Link>
       </div>
     </Layout>
   );
@@ -73,6 +90,7 @@ export const query = graphql`
         endDate
       }
     }
+
     educationList: allSanityEducation(sort: { startDate: DESC }) {
       nodes {
         school
@@ -85,16 +103,29 @@ export const query = graphql`
         _rawSelectedCourses(resolveReferences: { maxDepth: 1 })
       }
     }
+
     skillsSetList: allSanitySkillsSet(sort: { _createdAt: ASC }) {
       nodes {
         category
         skillsList
       }
     }
+
     languageList: allSanityLanguage(sort: { _createdAt: ASC }) {
       nodes {
         language
         proficiency
+      }
+    }
+
+    projectsList: allSanityProject(sort: { _createdAt: ASC }) {
+      nodes {
+        title
+        slug {
+          current
+        }
+        description
+        technologiesUsed
       }
     }
   }

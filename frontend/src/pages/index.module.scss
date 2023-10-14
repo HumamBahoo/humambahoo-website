@@ -5,4 +5,21 @@
   flex-direction: column;
   gap: 4rem;
   padding: 2.5rem 0.75rem;
+
+  .toTopCSS {
+    padding: 0.5rem 2rem;
+    text-align: center;
+
+    color: $secondaryTextColor;
+    font-size: 1.5rem;
+    background-color: $primaryColor;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 3rem;
+    transition: 0.25s;
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
 }
