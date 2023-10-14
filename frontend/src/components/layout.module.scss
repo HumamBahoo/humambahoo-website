@@ -3,14 +3,8 @@
   background-color: $bgColor;
   color: $textColor;
 
-  .wrapperCSS {
+  .mainCSS {
     max-width: 1074px;
     margin: 0 auto;
-
-    .mainCSS {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
   }
 }

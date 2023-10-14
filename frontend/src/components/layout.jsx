@@ -12,9 +12,7 @@ const Layout = ({ children }) => {
     >
       <Header />
 
-      <div className={wrapperCSS}>
-        <main className={mainCSS}>{children}</main>
-      </div>
+      <main className={mainCSS}>{children}</main>
 
       <Footer />
     </div>
