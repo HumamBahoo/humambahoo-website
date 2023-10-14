@@ -2,10 +2,13 @@
 
 .footerCSS {
   background-color: $bgColor;
-  padding: 3rem 1rem 2rem 1rem;
   text-align: center;
 
   .wrapperCSS {
+    border-top: 1px solid $secondaryBgColor;
+
+    padding: 3rem 1rem 2rem 1rem;
+
     max-width: 1194px;
     margin: 0 auto;
     color: $textColor;
@@ -105,9 +108,6 @@
         text-decoration: underline;
         text-decoration-color: $primaryColor;
       }
-    }
-
-    .copyrightsCSS {
     }
   }
 }
