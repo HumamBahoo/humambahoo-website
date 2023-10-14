@@ -6,7 +6,77 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { MdOpenInBrowser } from "react-icons/md";
 
-import { containerCSS, photoCSS, summaryCSS, resumeButtonCSS, iconCSS } from "./index.module.scss";
+import {
+  homepageCSS,
+  introCSS,
+  photoContainerCSS,
+  photoCSS,
+  summaryCSS,
+  detailsCSS,
+  resumeBtnCSS,
+  iconCSS,
+  aboutCSS,
+  portfolioCSS,
+} from "./index.module.scss";
+
+const HomePage = ({ data }) => {
+  const fullName = data.homepage.fullName;
+  const introduction = data.homepage.introduction;
+  const resumeUrl = data.homepage.resume.asset.url;
+  const personalPhoto = data.homepage.picture.asset.gatsbyImageData;
+
+  return (
+    <Layout>
+      <div className={homepageCSS}>
+        {/* Introduction */}
+        <div className={introCSS}>
+          <section className={photoContainerCSS}>
+            <GatsbyImage
+              image={personalPhoto}
+              alt={`${fullName} - Photo`}
+              className={photoCSS}
+            />
+          </section>
+
+          <section className={summaryCSS}>
+            <div className={detailsCSS}>
+              <h3>Hello, I'm...</h3>
+              <h2>{fullName}</h2>
+              <p>{introduction}</p>
+            </div>
+
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={resumeBtnCSS}
+            >
+              My Resume <MdOpenInBrowser className={iconCSS} />
+            </a>
+          </section>
+        </div>
+
+        {/* About */}
+        <div
+          id="about"
+          className={aboutCSS}
+        >
+          <h1>About</h1>
+        </div>
+
+        {/* Portfolio */}
+        <div
+          id="portfolio"
+          className={portfolioCSS}
+        >
+          <h1>Portfolio</h1>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default HomePage;
 
 export const query = graphql`
   query MyQuery {
@@ -27,41 +97,4 @@ export const query = graphql`
   }
 `;
 
-const HomePage = ({ data }) => {
-  const fullName = data.homepage.fullName;
-  const introduction = data.homepage.introduction;
-  const resumeUrl = data.homepage.resume.asset.url;
-  const personalPhoto = data.homepage.picture.asset.gatsbyImageData;
-
-  return (
-    <Layout>
-      <div className={containerCSS}>
-        <section className={photoCSS}>
-          <GatsbyImage
-            image={personalPhoto}
-            alt={`${fullName} - Photo`}
-          />
-        </section>
-
-        <section className={summaryCSS}>
-          <div>
-            <h3>Hello, I'm...</h3>
-            <h2>{fullName}</h2>
-            <p>{introduction}</p>
-          </div>
-
-          <a
-            href={resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={resumeButtonCSS}
-          >
-            My Resume <MdOpenInBrowser className={iconCSS} />
-          </a>
-        </section>
-      </div>
-    </Layout>
-  );
-};
-
-export default HomePage;
+export const Head = () => <title>Humam Bahoo - Home</title>;
