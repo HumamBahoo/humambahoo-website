@@ -5,9 +5,17 @@ import Layout from "../components/layout";
 import Introduction from "../components/introduction";
 
 import { homepageCSS, aboutCSS, portfolioCSS } from "./index.module.scss";
+import About from "../components/about";
 
 const HomePage = ({ data }) => {
   const introductionDetails = data.introduction;
+
+  const aboutDetails = {
+    workExperienceList: data.workExperienceList.nodes,
+    educationList: data.educationList.nodes,
+    skillsSetList: data.skillsSetList.nodes,
+    languageList: data.languageList.nodes,
+  };
 
   return (
     <Layout>
@@ -19,7 +27,7 @@ const HomePage = ({ data }) => {
           id="about"
           className={aboutCSS}
         >
-          <h1>About</h1>
+          <About details={aboutDetails} />
         </div>
 
         {/* Portfolio */}
@@ -50,6 +58,43 @@ export const query = graphql`
         asset {
           gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
+      }
+    }
+
+    workExperienceList: allSanityWorkExperience(sort: { startDate: DESC }) {
+      nodes {
+        isPresent
+        jobTitle
+        jobType
+        location
+        startDate
+        achievements
+        employer
+        endDate
+      }
+    }
+    educationList: allSanityEducation(sort: { startDate: DESC }) {
+      nodes {
+        school
+        degree
+        program
+        startDate
+        completionDate
+        gpa
+        location
+        _rawSelectedCourses(resolveReferences: { maxDepth: 1 })
+      }
+    }
+    skillsSetList: allSanitySkillsSet(sort: { _createdAt: ASC }) {
+      nodes {
+        category
+        skillsList
+      }
+    }
+    languageList: allSanityLanguage(sort: { _createdAt: ASC }) {
+      nodes {
+        language
+        proficiency
       }
     }
   }
