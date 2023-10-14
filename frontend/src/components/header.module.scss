@@ -1,37 +1,50 @@
-.containerCSS {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  max-width: var(--maxPageWidth);
-  align-items: self-end;
-  color: var(--primaryColor);
-  font-weight: var(--boldFontWeight);
+@import "../styles/variables.scss";
 
-  a {
-    &:hover {
-      color: var(--hoverColor);
+.headerCSS {
+  background-color: $bgColor;
+  padding: 2rem 1rem;
+
+  .wrapperCSS {
+    max-width: 1194px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: self-end;
+
+    color: $primaryColor;
+
+    .logoCSS {
+      font-size: 2rem;
+
+      h1 {
+        font-weight: 400;
+
+        span {
+          font-weight: 900;
+        }
+      }
+
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+
+    .navCSS {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      font-size: 1.25rem;
+
+      a {
+        &:hover {
+          color: $hoverColor;
+        }
+      }
     }
   }
-}
-
-.logoCSS {
-  font-weight: var(--normalFontWeight);
-
-  a {
-    font-size: 1.75rem;
-
-    span {
-      font-weight: var(--extraBoldFontWeight);
-    }
-  }
-}
-
-.navbarCSS {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--lgGap);
 }
