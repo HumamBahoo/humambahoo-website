@@ -11,7 +11,7 @@ const About = ({ details }) => {
   const { workExperienceList, educationList, skillsSetList, languageList } = details;
 
   return (
-    <div className={aboutCSS}>
+    <section className={aboutCSS}>
       {/* Work Experience */}
       {workExperienceList.length > 0 && (
         <section className={componentCSS}>
@@ -75,7 +75,7 @@ const About = ({ details }) => {
           </div>
         </section>
       )}
-    </div>
+    </section>
   );
 };
 

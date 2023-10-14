@@ -19,7 +19,7 @@ const Introduction = ({ details }) => {
   const personalPhoto = details.picture.asset.gatsbyImageData;
 
   return (
-    <div className={introCSS}>
+    <section className={introCSS}>
       <section className={photoContainerCSS}>
         <GatsbyImage
           image={personalPhoto}
@@ -44,7 +44,7 @@ const Introduction = ({ details }) => {
           My Resume <MdOpenInBrowser className={iconCSS} />
         </a>
       </section>
-    </div>
+    </section>
   );
 };
 
