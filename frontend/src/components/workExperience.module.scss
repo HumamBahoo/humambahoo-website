@@ -1,0 +1,39 @@
+@import "../styles/variables.scss";
+
+.workExperienceCSS {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .summaryCSS {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .titleCSS {
+      color: $hoverColor;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .employerCSS {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .periodsCSS {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  .achievementsCSS {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .achievementCSS {
+      display: list-item;
+      margin-left: 1.5rem;
+    }
+  }
+}
