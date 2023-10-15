@@ -1,39 +1,48 @@
-.containerCSS {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--lgGap);
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
+@import "../styles/variables.scss";
 
-  .messageCSS {
+.notFoundCSS {
+  padding: 2.5rem 0.75rem;
+
+  .wrapperCSS {
+    padding: 4rem;
     display: flex;
     flex-direction: column;
-    gap: var(--lgGap);
-    h2 {
-      color: var(--primaryColor);
-      font-size: var(--2xlTextFontSize);
-      font-weight: var(--semiBoldFontWeight);
-    }
-  }
-  .linkCSS {
-    display: flex;
     align-items: center;
-    background-color: var(--primaryColor);
-    padding: var(--buttonPadding);
-    color: var(--primaryBgColor);
-    font-weight: var(--boldFontWeight);
-    text-transform: uppercase;
-    width: fit-content;
-    border-radius: 1rem;
+    text-align: center;
 
-    .iconCSS {
-      font-size: var(--mdTextFontSize);
+    gap: 4rem;
+
+    .titleCSS {
+      font-size: 2rem;
+      color: $primaryColor;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    &:hover {
-      background-color: var(--hoverColor);
+    .messageCSS {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+
+    .buttonCSS {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-transform: uppercase;
+      font-weight: 600;
+
+      background-color: $primaryColor;
+      color: $secondaryTextColor;
+      width: fit-content;
+      padding: 0.5rem 2rem;
+      border-radius: 1.25rem;
+
+      transition: background-color 0.25s;
+
+      &:hover,
+      &:focus {
+        background-color: $hoverColor;
+      }
     }
   }
 }
