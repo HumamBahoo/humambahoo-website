@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 4rem;
 
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
   border-radius: 0.5rem;
   background-color: $secondaryBgColor;
 
@@ -21,7 +21,7 @@
   .containerCSS {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 
