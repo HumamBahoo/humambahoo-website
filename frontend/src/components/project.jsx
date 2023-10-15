@@ -17,7 +17,7 @@ const Project = ({ details }) => {
 
       <div className={techWrapperCSS}>
         <section className={techUsedCSS}>
-          {technologiesUsed.map((tech, idx) => (
+          {technologiesUsed.slice(0, 2).map((tech, idx) => (
             <p
               key={idx}
               className={techCSS}
@@ -25,6 +25,8 @@ const Project = ({ details }) => {
               {tech}
             </p>
           ))}
+
+          {technologiesUsed.length > 2 && <p className={techCSS}>...</p>}
         </section>
       </div>
     </Link>
