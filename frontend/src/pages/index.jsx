@@ -34,14 +34,6 @@ const HomePage = ({ data }) => {
           <About details={aboutDetails} />
         </section>
 
-        {/* Back to the top */}
-        <Link
-          to={"/#home"}
-          className={toTopCSS}
-        >
-          <MdArrowUpward />
-        </Link>
-
         {/* Portfolio */}
         <section id="portfolio">
           <Portfolio details={projectsList} />
