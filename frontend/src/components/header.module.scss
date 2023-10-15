@@ -18,18 +18,21 @@
     transition: 0.25s;
 
     .logoCSS {
-      font-size: 2rem;
+      a {
+        font-size: 2rem;
 
-      h1 {
-        font-weight: 400;
+        h1 {
+          font-weight: 400;
 
-        span {
-          font-weight: 900;
+          span {
+            font-weight: 900;
+          }
         }
-      }
 
-      &:hover {
-        color: $hoverColor;
+        &:hover,
+        &:focus {
+          color: $hoverColor;
+        }
       }
     }
 
@@ -43,7 +46,8 @@
       transition: 0.25s;
 
       a {
-        &:hover {
+        &:hover,
+        &:focus {
           color: $hoverColor;
         }
       }

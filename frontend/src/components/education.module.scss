@@ -53,7 +53,8 @@
           .courseLinkCSS {
             color: $linkColor;
 
-            &:hover {
+            &:hover,
+            &:focus {
               color: $linkHoverColor;
               text-decoration: underline;
             }
