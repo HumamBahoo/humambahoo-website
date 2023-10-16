@@ -14,11 +14,12 @@ exports.createPages = async ({ actions, graphql }) => {
           }
           description
           technologiesUsed
-          _rawBody(resolveReferences: { maxDepth: $maxDepth })
+          _rawProjectDetails(resolveReferences: { maxDepth: $maxDepth })
           liveUrl
           repositoryUrl
           status
           date
+          _updatedAt
         }
       }
     }
@@ -35,11 +36,12 @@ exports.createPages = async ({ actions, graphql }) => {
         title: node.title,
         description: node.description,
         technologiesUsed: node.technologiesUsed,
-        detailedContent: node._rawBody,
+        projectDetails: node._projectDetails,
         liveUrl: node.liveUrl,
         repositoryUrl: node.repositoryUrl,
         status: node.status,
         date: node.date,
+        updatedAt: node._updatedAt,
       },
     });
   });
