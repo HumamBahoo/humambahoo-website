@@ -41,8 +41,17 @@
 
       &:hover,
       &:focus {
-        padding: 0.75rem 5rem;
+        padding: 0.75rem 4rem;
         background-color: $secondaryBgColor;
+      }
+
+      @media (max-width: $mobileBreakPoint) {
+        gap: 1rem;
+
+        &:hover,
+        &:focus {
+          padding: 0.75rem 3rem;
+        }
       }
     }
 
