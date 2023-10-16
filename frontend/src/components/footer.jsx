@@ -5,12 +5,14 @@ import { MdEmail } from "react-icons/md";
 import { FaGithubSquare, FaLinkedin, FaYoutubeSquare } from "react-icons/fa";
 
 import {
-  containerCSS,
-  quickLinksCSS,
-  emailButtonCSS,
-  iconCSS,
+  footerCSS,
+  wrapperCSS,
+  emailBtnCSS,
+  emailIconCSS,
+  navCSS,
   findMeCSS,
-  technologiesCSS,
+  socialIconCSS,
+  techCSS,
   copyrightsCSS,
 } from "./footer.module.scss";
 
@@ -29,21 +31,22 @@ const Footer = () => {
   const { siteTitle, email } = data.site.siteMetadata;
 
   return (
-    <footer>
-      <div className={containerCSS}>
+    <footer className={footerCSS}>
+      <div className={wrapperCSS}>
         <a
           href={`mailto:${email}`}
-          className={emailButtonCSS}
+          className={emailBtnCSS}
         >
-          Email Me <MdEmail className={iconCSS} />
+          Email Me <MdEmail className={emailIconCSS} />
         </a>
 
-        <div className={quickLinksCSS}>
+        <div className={navCSS}>
           <h2>Quick Links</h2>
+
           <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/portfolio">Portfolio</Link>
+            <Link to="/#home">Home</Link>
+            <Link to="/#about">About</Link>
+            <Link to="/#portfolio">Portfolio</Link>
           </nav>
         </div>
 
@@ -56,14 +59,14 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithubSquare className={iconCSS} />
+              <FaGithubSquare className={socialIconCSS} />
             </a>
             <a
               href="https://www.youtube.com/@humambahoo"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaYoutubeSquare className={iconCSS} />
+              <FaYoutubeSquare className={socialIconCSS} />
             </a>
 
             <a
@@ -71,21 +74,22 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className={iconCSS} />
+              <FaLinkedin className={socialIconCSS} />
             </a>
           </nav>
         </div>
 
-        <div className={technologiesCSS}>
+        <div className={techCSS}>
           <p>
             Built with <span>Gatsby</span> | Styled with <span>Sass</span> | Hosted on <span>Netlify</span>
           </p>
         </div>
-      </div>
-      <div className={copyrightsCSS}>
-        <p>
-          © {new Date().getFullYear()} <span>{siteTitle}</span>. All rights reserved.
-        </p>
+
+        <div className={copyrightsCSS}>
+          <p>
+            © {new Date().getFullYear()} <span>{siteTitle}</span>. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

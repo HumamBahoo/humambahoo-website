@@ -1,197 +1,150 @@
 import React from "react";
-
 import Layout from "../components/layout";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
+import { MdArrowBack } from "react-icons/md";
+import { FaExternalLinkAlt, FaGitAlt } from "react-icons/fa";
 import { PortableText } from "@portabletext/react";
 
-import { Link } from "gatsby";
-
-import { MdArrowBack } from "react-icons/md";
-
-import { FaExternalLinkAlt, FaGitAlt } from "react-icons/fa";
-
 import {
-  containerCSS,
-  backButtonCSS,
-  contentCSS,
-  introCSS,
-  summaryCSS,
-  descriptionCSS,
-  technologiesCSS,
-  technologyCSS,
-  basicInfoCSS,
-  linksCSS,
-  gitButtonCSS,
-  liveUrlButtonCSS,
-  projectImageCSS,
-  portableTextCSS,
-  videoCSS,
-  tagsCSS,
-  tagCSS,
+  projectTemplateCSS,
+  arrowBackCSS,
+  projectIntroCSS,
+  titleCSS,
+  descCSS,
+  statusCSS,
+  techUsedCSS,
+  techCSS,
+  urlsCSS,
+  repoUrlCSS,
+  liveSiteUrlCSS,
+  linkIconCSS,
+  gitIconCSS,
+  projectDetailsCSS,
+  imageCSS,
+  linkCSS,
+  ulCSS,
+  olCSS,
 } from "./projectTemplate.module.scss";
 
+const portableTextComponent = {
+  types: {
+    image: ({ value }) => (
+      <div
+        className={imageCSS}
+        style={{
+          backgroundImage: `url(${value.asset.url})`,
+          backgroundPosition: `${value.hotspot.x * 100}% ${value.hotspot.y * 100}%`,
+        }}
+      >
+        <img
+          src={value.asset.url}
+          alt={value.altText || "Descriptive Image"}
+          style={{ visibility: "hidden", position: "absolute" }}
+        />
+      </div>
+    ),
+  },
+  marks: {
+    link: ({ value, children }) => (
+      <a
+        href={value.href.startsWith("http") ? value.href : `https://${value.href}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkCSS}
+      >
+        {children}
+      </a>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className={ulCSS}>{children}</ul>,
+    number: ({ children }) => <ol className={olCSS}>{children}</ol>,
+  },
+};
+
 const ProjectTemplate = ({ pageContext }) => {
-  const {
-    title,
-    description,
-    image,
-    youtubeVideo,
-    technologiesUsed,
-    body,
-    liveUrl,
-    repositoryUrl,
-    status,
-    tags,
-    contributors,
-    challenges,
-    keyLearnings,
-  } = pageContext;
+  const { title, description, technologiesUsed, projectDetails, liveUrl, repositoryUrl, status } = pageContext;
 
   const date = new Date(pageContext.date).toLocaleString("default", {
     day: "2-digit",
-    year: "numeric",
     month: "short",
+    year: "numeric",
   });
 
-  let videoId;
-  if (youtubeVideo) {
-    videoId = youtubeVideo.split("?v=")[1];
-  }
+  const updatedAt = new Date(pageContext.updatedAt).toLocaleString("default", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
 
   return (
     <Layout>
-      <div className={containerCSS}>
-        {/* All Projects Button */}
+      <div className={projectTemplateCSS}>
+        {/* back to */}
         <Link
-          to="/portfolio"
-          className={backButtonCSS}
+          to={"/#portfolio"}
+          className={arrowBackCSS}
         >
-          <MdArrowBack /> All Projects
+          <MdArrowBack /> Back to portfolio
         </Link>
 
-        {/* Project Content */}
-        <div className={contentCSS}>
-          {/* Summary Info */}
-          <div className={summaryCSS}>
-            {/* Intro */}
-            <div className={introCSS}>
-              {/* Title */}
-              <h3>{title}</h3>
+        {/* project introduction */}
+        <div className={projectIntroCSS}>
+          <h3 className={titleCSS}>{title}</h3>
 
-              {/* Description */}
-              <div className={descriptionCSS}>
-                <p>{description}</p>
-              </div>
-            </div>
+          <p className={descCSS}>{description}</p>
 
-            {/* Basic Info */}
-            <div className={basicInfoCSS}>
-              <p>
-                {date} - {status}
-              </p>
-
-              {contributors.length > 0 && (
-                <p>
-                  By{" "}
-                  {contributors.map((contributor, idx) => {
-                    if (contributors.length === idx + 1) {
-                      return <span key={idx}>and {contributor}</span>;
-                    } else {
-                      return <span key={idx}>{contributor}, </span>;
-                    }
-                  })}
-                </p>
-              )}
-            </div>
-
-            {/* Links */}
-            <div className={linksCSS}>
-              {/* Repo */}
-              <a
-                href={repositoryUrl}
-                className={gitButtonCSS}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Repo URL
-                <FaGitAlt />
-              </a>
-
-              {/* Live URL */}
-              {liveUrl && (
-                <a
-                  href={liveUrl}
-                  className={liveUrlButtonCSS}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live URL
-                  <FaExternalLinkAlt />
-                </a>
-              )}
-            </div>
-
-            {/* Tech */}
-            <div className={technologiesCSS}>
-              {technologiesUsed.map((technology, idx) => (
-                <p
-                  key={idx}
-                  className={technologyCSS}
-                >
-                  {technology}
-                </p>
-              ))}
-            </div>
-
-            {/* Project Image */}
-            <div className={projectImageCSS}>
-              <GatsbyImage
-                image={image}
-                alt={`${title} - Image`}
-              />
-            </div>
+          <div className={statusCSS}>
+            <p>
+              {status} - Published on {date} - Updated on {updatedAt}
+            </p>
           </div>
 
-          {/* Project Details */}
-          {body && (
-            <div className={portableTextCSS}>
-              <PortableText value={body} />
-            </div>
-          )}
-
-          {/* Project Video */}
-          {videoId && (
-            <div className={videoCSS}>
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen="allowfullscreen"
-              />
-            </div>
-          )}
-
-          {/* Challenges */}
-          {challenges && <p>{challenges}</p>}
-
-          {/* Learning  */}
-          {keyLearnings && <p>{keyLearnings}</p>}
-        </div>
-
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div className={tagsCSS}>
-            {tags.map((tag, idx) => (
+          <div className={techUsedCSS}>
+            {technologiesUsed.map((tech, idx) => (
               <p
                 key={idx}
-                className={tagCSS}
+                className={techCSS}
               >
-                #{tag}
+                {tech}
               </p>
             ))}
+          </div>
+        </div>
+        {/* url buttons */}
+        <div className={urlsCSS}>
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              className={liveSiteUrlCSS}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Site
+              <FaExternalLinkAlt className={linkIconCSS} />
+            </a>
+          )}
+
+          {repositoryUrl && (
+            <a
+              href={repositoryUrl}
+              className={repoUrlCSS}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Repo URL
+              <FaGitAlt className={gitIconCSS} />
+            </a>
+          )}
+        </div>
+
+        {/* project details */}
+        {projectDetails && (
+          <div className={projectDetailsCSS}>
+            <PortableText
+              value={projectDetails}
+              components={portableTextComponent}
+            />
           </div>
         )}
       </div>

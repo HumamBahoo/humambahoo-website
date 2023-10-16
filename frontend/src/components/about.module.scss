@@ -1,0 +1,41 @@
+@import "../styles/variables.scss";
+
+.aboutCSS {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem 0;
+
+  .componentCSS {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    background-color: $secondaryBgColor;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+
+    .componentHeaderCSS {
+      font-size: 2rem;
+      font-weight: 700;
+
+      color: $primaryColor;
+    }
+
+    .componentContentCSS {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakPoint) {
+  .aboutCSS {
+    padding: 2rem 0;
+
+    .componentCSS {
+      padding: 1rem 1rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const projectTemplate = path.resolve("./src/templates/projectTemplate.jsx");
 
   const queryResults = await graphql(`
-    query PortfolioPage {
+    query PortfolioPage($maxDepth: Int = 2) {
       projectsList: allSanityProject {
         nodes {
           title
@@ -13,22 +13,13 @@ exports.createPages = async ({ actions, graphql }) => {
             current
           }
           description
-          image {
-            asset {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-            }
-          }
-          youtubeVideo
           technologiesUsed
-          _rawBody
+          _rawProjectDetails(resolveReferences: { maxDepth: $maxDepth })
           liveUrl
           repositoryUrl
           status
           date
-          tags
-          contributors
-          challenges
-          keyLearnings
+          _updatedAt
         }
       }
     }
@@ -44,18 +35,13 @@ exports.createPages = async ({ actions, graphql }) => {
       context: {
         title: node.title,
         description: node.description,
-        image: node.image.asset.gatsbyImageData,
-        youtubeVideo: node.youtubeVideo,
         technologiesUsed: node.technologiesUsed,
-        body: node._rawBody,
+        projectDetails: node._projectDetails,
         liveUrl: node.liveUrl,
         repositoryUrl: node.repositoryUrl,
         status: node.status,
         date: node.date,
-        tags: node.tags,
-        contributors: node.contributors,
-        challenges: node.challenges,
-        keyLearnings: node.keyLearnings,
+        updatedAt: node._updatedAt,
       },
     });
   });

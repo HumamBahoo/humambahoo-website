@@ -1,3 +1,3 @@
-import "./src/styles/reset.css";
-import "./src/styles/variables.css";
-import "./src/styles/global.css";
+import "./src/styles/reset.scss";
+import "./src/styles/variables.scss";
+import "./src/styles/global.scss";

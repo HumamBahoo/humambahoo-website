@@ -1,18 +1,63 @@
 import React from "react";
+import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
+import Introduction from "../components/introduction";
 
-import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { MdOpenInBrowser } from "react-icons/md";
+import { homepageCSS, toTopCSS } from "./index.module.scss";
+import About from "../components/about";
+import Portfolio from "../components/portfolio";
+import { MdArrowUpward } from "react-icons/md";
 
-import { containerCSS, photoCSS, summaryCSS, resumeButtonCSS, iconCSS } from "./index.module.scss";
+const HomePage = ({ data }) => {
+  const introductionDetails = data.introduction;
+
+  const aboutDetails = {
+    workExperienceList: data.workExperienceList.nodes,
+    educationList: data.educationList.nodes,
+    skillsSetList: data.skillsSetList.nodes,
+    languageList: data.languageList.nodes,
+  };
+
+  const projectsList = data.projectsList.nodes;
+
+  return (
+    <Layout>
+      <div className={homepageCSS}>
+        {/* Introduction */}
+        <section id="introduction">
+          <Introduction details={introductionDetails} />
+        </section>
+
+        {/* About */}
+        <section id="about">
+          <About details={aboutDetails} />
+        </section>
+
+        {/* Portfolio */}
+        <section id="portfolio">
+          <Portfolio details={projectsList} />
+        </section>
+
+        {/* Back to the top */}
+        <Link
+          to={"/#home"}
+          className={toTopCSS}
+        >
+          <MdArrowUpward />
+        </Link>
+      </div>
+    </Layout>
+  );
+};
+
+export default HomePage;
 
 export const query = graphql`
-  query MyQuery {
-    homepage: sanityHomepage {
+  query HomepageQuery {
+    introduction: sanityIntroduction {
       fullName
-      introduction
+      about
       resume {
         asset {
           url
@@ -24,44 +69,58 @@ export const query = graphql`
         }
       }
     }
+
+    workExperienceList: allSanityWorkExperience(sort: { startDate: DESC }) {
+      nodes {
+        isPresent
+        jobTitle
+        jobType
+        location
+        startDate
+        achievements
+        employer
+        endDate
+      }
+    }
+
+    educationList: allSanityEducation(sort: { startDate: DESC }) {
+      nodes {
+        school
+        degree
+        program
+        startDate
+        completionDate
+        gpa
+        location
+        _rawSelectedCourses(resolveReferences: { maxDepth: 1 })
+      }
+    }
+
+    skillsSetList: allSanitySkillsSet(sort: { _createdAt: ASC }) {
+      nodes {
+        category
+        skillsList
+      }
+    }
+
+    languageList: allSanityLanguage(sort: { _createdAt: ASC }) {
+      nodes {
+        language
+        proficiency
+      }
+    }
+
+    projectsList: allSanityProject(sort: { _createdAt: ASC }) {
+      nodes {
+        title
+        slug {
+          current
+        }
+        description
+        technologiesUsed
+      }
+    }
   }
 `;
 
-const HomePage = ({ data }) => {
-  const fullName = data.homepage.fullName;
-  const introduction = data.homepage.introduction;
-  const resumeUrl = data.homepage.resume.asset.url;
-  const personalPhoto = data.homepage.picture.asset.gatsbyImageData;
-
-  return (
-    <Layout>
-      <div className={containerCSS}>
-        <section className={photoCSS}>
-          <GatsbyImage
-            image={personalPhoto}
-            alt={`${fullName} - Photo`}
-          />
-        </section>
-
-        <section className={summaryCSS}>
-          <div>
-            <h3>Hello, I'm...</h3>
-            <h2>{fullName}</h2>
-            <p>{introduction}</p>
-          </div>
-
-          <a
-            href={resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={resumeButtonCSS}
-          >
-            My Resume <MdOpenInBrowser className={iconCSS} />
-          </a>
-        </section>
-      </div>
-    </Layout>
-  );
-};
-
-export default HomePage;
+export const Head = () => <title>Humam Bahoo - Home</title>;

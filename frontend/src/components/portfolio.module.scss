@@ -1,0 +1,36 @@
+@import "../styles/variables.scss";
+
+.portfolioCSS {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 2rem 2rem;
+  border-radius: 0.5rem;
+  background-color: $secondaryBgColor;
+
+  .titleCSS {
+    color: $primaryColor;
+
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .containerCSS {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: $mobileBreakPoint) {
+  .portfolioCSS {
+    padding: 1rem 1rem;
+
+    .containerCSS {
+      grid-template-columns: 1fr;
+    }
+  }
+}

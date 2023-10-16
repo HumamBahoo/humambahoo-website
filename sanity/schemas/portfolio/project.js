@@ -27,48 +27,7 @@ export default {
       description: 'A brief description of the project',
       validation: (Rule) => Rule.required().error('A description is required.'),
     },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      description: 'A representative image of the project.',
-      options: {
-        hotspot: true,
-      },
-      validation: (Rule) => Rule.required().error('An image is required.'),
-    },
-    {
-      name: 'youtubeVideo',
-      title: 'YouTube Video',
-      type: 'url',
-      description: 'A YouTube video URL demonstration for the project.',
-      validation: (Rule) =>
-        Rule.custom((url) => {
-          let isValidUrl = true
-          let errorMsg = null
 
-          // If URL is not empty it should be a valid URL for a youtube video:
-          if (url) {
-            try {
-              const urlObj = new URL(url)
-
-              if (urlObj.hostname !== 'www.youtube.com') {
-                isValidUrl = false
-                errorMsg = 'Not a valid YouTube URL.'
-              } else if (!urlObj.searchParams.get('v') || urlObj.pathname !== '/watch') {
-                isValidUrl = false
-                errorMsg = 'Not a valid YouTube URL for a video.'
-              }
-
-              isValidUrl = true
-            } catch (err) {
-              isValidUrl = false
-            }
-          }
-
-          return errorMsg == null ? isValidUrl : errorMsg
-        }),
-    },
     {
       name: 'technologiesUsed',
       title: 'Technologies Used',
@@ -79,8 +38,8 @@ export default {
       validation: (Rule) => Rule.required().error('Technologies used is required.'),
     },
     {
-      name: 'body',
-      title: 'Body',
+      name: 'projectDetails',
+      title: 'Project Details',
       type: 'array',
       of: [
         {
@@ -129,35 +88,6 @@ export default {
       type: 'datetime',
       description: 'The date the project has been published.',
       validation: (Rule) => Rule.required().error('A date must be entered.'),
-    },
-    {
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{type: 'string'}],
-      description: 'Relevant tags related to the project.',
-      options: {layout: 'tags'},
-    },
-    {
-      name: 'contributors',
-      title: 'Contributors',
-      type: 'array',
-      of: [{type: 'string'}],
-      description: 'Names of contributors or team members.',
-      options: {layout: 'tags'},
-    },
-
-    {
-      name: 'challenges',
-      title: 'Challenges',
-      type: 'text',
-      description: 'Challenges have been faced during this project and how they were addressed.',
-    },
-    {
-      name: 'keyLearnings',
-      title: 'Key Learnings',
-      type: 'text',
-      description: 'Key learnings or takeaways from the project.',
     },
   ],
 }

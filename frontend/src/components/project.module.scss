@@ -1,0 +1,64 @@
+@import "../styles/variables.scss";
+
+.projectCSS {
+  background-color: $bgColor;
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 4px 4px 8px #5c473d;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr auto;
+  gap: 2.5rem;
+
+  transition: 0.25s;
+
+  .titleCSS {
+    font-size: 2rem;
+    color: $primaryColor;
+
+    overflow: hidden;
+
+    width: auto;
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+  }
+
+  .descCSS {
+    overflow: hidden;
+
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+  }
+
+  .techWrapperCSS {
+    overflow: hidden;
+
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+
+    .techUsedCSS {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+
+      .techCSS {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        background-color: $secondaryBgColor;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $textColor;
+    cursor: pointer;
+
+    .titleCSS,
+    .descCSS {
+      color: $secondaryTextColor;
+    }
+  }
+}

@@ -1,68 +1,29 @@
-.containerCSS {
+@import "../styles/variables.scss";
+
+.homepageCSS {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2.5rem 0.75rem;
 
-  section {
-    flex-basis: 50%;
-  }
+  .toTopCSS {
+    position: fixed;
+    bottom: 55px;
+    align-self: center;
 
-  .summaryCSS {
-    display: flex;
-    flex-direction: column;
-    gap: var(--lgGap);
+    background-color: $textColor;
+    color: $secondaryTextColor;
+    opacity: 0.7;
 
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: var(--smGap);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
 
-      h2 {
-        font-size: var(--2xlTextFontSize);
-        color: var(--primaryColor);
-        text-transform: uppercase;
-        font-weight: var(--boldFontWeight);
-      }
+    transition: 0.25s;
 
-      h3 {
-        font-size: var(--mdTextFontSize);
-      }
-
-      p {
-        text-align: justify;
-      }
+    &:hover {
+      background-color: $hoverColor;
+      transform: translateY(-5px);
+      opacity: 1;
     }
-
-    .resumeButtonCSS {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: var(--primaryColor);
-      padding: var(--buttonPadding);
-      gap: var(--smGap);
-      color: var(--primaryBgColor);
-      font-weight: var(--boldFontWeight);
-      text-transform: uppercase;
-      width: fit-content;
-      border-radius: 1rem;
-
-      .iconCSS {
-        font-size: var(--mdTextFontSize);
-      }
-
-      &:hover {
-        background-color: var(--hoverColor);
-      }
-    }
-  }
-}
-
-.photoCSS {
-  max-width: 400px;
-
-  img {
-    border-radius: 50%;
   }
 }
