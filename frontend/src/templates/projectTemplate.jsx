@@ -34,10 +34,6 @@ const portableTextComponent = {
         style={{
           backgroundImage: `url(${value.asset.url})`,
           backgroundPosition: `${value.hotspot.x * 100}% ${value.hotspot.y * 100}%`,
-          width: "100%",
-          height: "400px",
-          borderRadius: "0.25rem",
-          border: "2px solid $",
         }}
       >
         <img
@@ -67,12 +63,18 @@ const portableTextComponent = {
 };
 
 const ProjectTemplate = ({ pageContext }) => {
-  const { title, description, technologiesUsed, detailedContent, liveUrl, repositoryUrl, status } = pageContext;
+  const { title, description, technologiesUsed, projectDetails, liveUrl, repositoryUrl, status } = pageContext;
 
   const date = new Date(pageContext.date).toLocaleString("default", {
     day: "2-digit",
-    year: "numeric",
     month: "short",
+    year: "numeric",
+  });
+
+  const updatedAt = new Date(pageContext.updatedAt).toLocaleString("default", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
   });
 
   return (
@@ -94,7 +96,7 @@ const ProjectTemplate = ({ pageContext }) => {
 
           <div className={statusCSS}>
             <p>
-              {status} - Published on {date} - Updated on {date}
+              {status} - Published on {date} - Updated on {updatedAt}
             </p>
           </div>
 
@@ -137,10 +139,10 @@ const ProjectTemplate = ({ pageContext }) => {
         </div>
 
         {/* project details */}
-        {detailedContent && (
+        {projectDetails && (
           <div className={projectDetailsCSS}>
             <PortableText
-              value={detailedContent}
+              value={projectDetails}
               components={portableTextComponent}
             />
           </div>
