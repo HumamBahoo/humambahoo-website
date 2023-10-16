@@ -14,7 +14,7 @@ import {
 
 const Introduction = ({ details }) => {
   const fullName = details.fullName;
-  const summary = details.introduction;
+  const summary = details.about;
   const resumeUrl = details.resume.asset.url;
   const personalPhoto = details.picture.asset.gatsbyImageData;
 
