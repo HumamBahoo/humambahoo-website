@@ -71,7 +71,7 @@ const ProjectTemplate = ({ pageContext }) => {
     year: "numeric",
   });
 
-  const updatedAt = new Date(pageContext.updatedAt).toLocaleString("default", {
+  const updatedAt = new Date(pageContext._updatedAt).toLocaleString("default", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -153,3 +153,5 @@ const ProjectTemplate = ({ pageContext }) => {
 };
 
 export default ProjectTemplate;
+
+export const Head = ({ pageContext }) => <title>Humam Bahoo - {pageContext.title}</title>;
