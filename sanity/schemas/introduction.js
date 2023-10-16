@@ -1,8 +1,8 @@
-// schemas/homepage.js
+// schemas/introduction.js
 
 export default {
-  name: 'homepage',
-  title: 'Homepage',
+  name: 'introduction',
+  title: 'Introduction',
   type: 'document',
   fields: [
     {
@@ -12,10 +12,10 @@ export default {
       validation: (Rule) => Rule.required('A full name is required'),
     },
     {
-      name: 'introduction',
-      title: 'Introduction',
+      name: 'about',
+      title: 'About',
       type: 'text',
-      validation: (Rule) => Rule.required('An introduction is required'),
+      validation: (Rule) => Rule.required('An about summary is required'),
     },
     {
       name: 'picture',

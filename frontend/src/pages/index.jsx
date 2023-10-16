@@ -55,9 +55,9 @@ export default HomePage;
 
 export const query = graphql`
   query HomepageQuery {
-    introduction: sanityHomepage {
+    introduction: sanityIntroduction {
       fullName
-      introduction
+      about
       resume {
         asset {
           url
