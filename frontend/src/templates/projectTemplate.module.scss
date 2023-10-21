@@ -158,6 +158,7 @@
 
 @media (max-width: $mobileBreakPoint) {
   .projectTemplateCSS {
+    padding: 0 1rem;
     .urlsCSS {
       flex-direction: column;
       align-items: center;
