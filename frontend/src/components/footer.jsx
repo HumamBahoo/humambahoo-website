@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { MdEmail } from "react-icons/md";
 import { FaGithubSquare, FaLinkedin, FaYoutubeSquare } from "react-icons/fa";
 
@@ -9,8 +9,8 @@ import {
   wrapperCSS,
   emailBtnCSS,
   emailIconCSS,
-  navCSS,
-  findMeCSS,
+  otherDetailsCSS,
+  socialCSS,
   socialIconCSS,
   techCSS,
   copyrightsCSS,
@@ -40,19 +40,7 @@ const Footer = () => {
           Email Me <MdEmail className={emailIconCSS} />
         </a>
 
-        <div className={navCSS}>
-          <h2>Quick Links</h2>
-
-          <nav>
-            <Link to="/#home">Home</Link>
-            <Link to="/#about">About</Link>
-            <Link to="/#portfolio">Portfolio</Link>
-          </nav>
-        </div>
-
-        <div className={findMeCSS}>
-          <h2>Find Me</h2>
-
+        <div className={socialCSS}>
           <nav>
             <a
               href="https://www.github.com/humambahoo"
@@ -79,16 +67,18 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className={techCSS}>
-          <p>
-            Built with <span>Gatsby</span> | Styled with <span>Sass</span> | Hosted on <span>Netlify</span>
-          </p>
-        </div>
+        <div className={otherDetailsCSS}>
+          <div className={techCSS}>
+            <p>
+              Built with <span>Gatsby</span> | Styled with <span>Sass</span> | Hosted on <span>Netlify</span>
+            </p>
+          </div>
 
-        <div className={copyrightsCSS}>
-          <p>
-            © {new Date().getFullYear()} <span>{siteTitle}</span>. All rights reserved.
-          </p>
+          <div className={copyrightsCSS}>
+            <p>
+              © {new Date().getFullYear()} <span>{siteTitle}</span>. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
