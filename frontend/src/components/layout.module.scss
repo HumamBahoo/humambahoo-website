@@ -6,9 +6,10 @@
   gap: 4rem;
   background-color: $bgColor;
   color: $textColor;
-
+  
   .mainCSS {
     max-width: $maxLayoutWidth;
+    width: 100%;
     margin: 0 auto;
   }
 }
