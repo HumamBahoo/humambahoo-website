@@ -7,19 +7,20 @@
 
   .categoryCSS {
     color: $hoverColor;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
   }
   .skillsCSS {
+    font-size: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 0.5rem;
 
     .skillCSS {
       text-align: center;
-      padding: 0.25rem 0.75rem;
-      background-color: $bgColor;
+      padding: 0.12rem 0.75rem;
+      background-color: $secondaryBgColor;
       border-radius: 4px;
     }
   }

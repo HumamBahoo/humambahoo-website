@@ -5,34 +5,34 @@
   text-align: center;
 
   .wrapperCSS {
-    border-top: 1px solid $secondaryBgColor;
-
     padding: 3rem 1rem 2rem 1rem;
 
-    max-width: 1194px;
+    max-width: $maxLayoutWidth + 100px;
     margin: 0 auto;
     color: $textColor;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 
     .emailBtnCSS {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 1.25rem;
-      width: fit-content;
-
-      background-color: $secondaryBtnColor;
+      gap: 1rem;
       text-transform: uppercase;
       font-weight: 600;
 
-      padding: 0.75rem 2rem;
+      background-color: $secondaryBtnColor;
+
+      width: fit-content;
+      padding: 0.75rem 1.5rem;
       border-radius: 1rem;
+
       border-left: 3px solid $primaryColor;
       border-right: 3px solid $primaryColor;
+
       transition: 0.25s;
 
       .emailIconCSS {
@@ -41,89 +41,50 @@
 
       &:hover,
       &:focus {
-        padding: 0.75rem 4rem;
+        padding: 0.75rem 3rem;
         background-color: $secondaryBgColor;
       }
-
-      @media (max-width: $mobileBreakPoint) {
-        gap: 1rem;
-
-        &:hover,
-        &:focus {
-          padding: 0.75rem 3rem;
-        }
-      }
     }
 
-    .navCSS {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        a {
-          color: $primaryColor;
-          transition: 0.25s;
-
-          &:hover,
-          &:focus {
-            color: $hoverColor;
-          }
-        }
-      }
-    }
-
-    .findMeCSS {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
+    .socialCSS {
       nav {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 1.25rem;
+        gap: 1rem;
 
         a {
-          color: $primaryColor;
+          color: $textColor;
           transition: 0.25s;
 
           .socialIconCSS {
-            font-size: 2.25rem;
+            font-size: 2rem;
           }
 
           &:hover,
           &:focus {
-            color: $hoverColor;
+            color: $primaryColor;
           }
         }
       }
     }
 
-    .techCSS {
-      span {
-        font-weight: 700;
-        text-decoration: underline;
-        text-decoration-color: $primaryColor;
-      }
-    }
+    .otherDetailsCSS {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
 
-    .copyrightsCSS {
-      font-size: 1rem;
+      .techCSS {
+        span {
+          font-weight: 700;
+          text-decoration: underline;
+          text-decoration-color: $primaryColor;
+        }
+      }
+
+      .copyrightsCSS {
+        font-size: 1rem;
+      }
     }
   }
 }

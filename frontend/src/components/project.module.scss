@@ -1,19 +1,20 @@
 @import "../styles/variables.scss";
 
 .projectCSS {
-  background-color: $bgColor;
+  background-color: $secondaryBgColor;
   border-radius: 0.5rem;
-  padding: 2rem 1.5rem;
-  box-shadow: 4px 4px 8px #5c473d;
+  padding: 1.5rem;
+  box-shadow: 6px 4px 0px #816152;
 
   display: grid;
   grid-template-rows: 1fr 1fr auto;
-  gap: 2.5rem;
+  gap: 1.5rem;
 
   transition: 0.25s;
 
   .titleCSS {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: $primaryColor;
 
     overflow: hidden;
@@ -45,7 +46,7 @@
       .techCSS {
         font-size: 0.75rem;
         padding: 0.25rem 0.75rem;
-        background-color: $secondaryBgColor;
+        background-color: $cardColor;
         border-radius: 0.25rem;
       }
     }
@@ -53,8 +54,12 @@
 
   &:hover,
   &:focus {
-    background-color: $textColor;
+    background-color: $primaryColor;
     cursor: pointer;
+
+    .titleCSS {
+      font-weight: 900;
+    }
 
     .titleCSS,
     .descCSS {
