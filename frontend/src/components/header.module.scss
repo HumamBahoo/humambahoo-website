@@ -1,11 +1,14 @@
 @import "../styles/variables.scss";
 
 .headerCSS {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: $bgColor;
-  padding: 2rem 1rem;
+  padding: 1rem;
 
   .wrapperCSS {
-    max-width: 1194px;
+    max-width: $maxLayoutWidth + 100px;
     margin: 0 auto;
 
     display: flex;
@@ -19,7 +22,7 @@
 
     .logoCSS {
       a {
-        font-size: 2rem;
+        font-size: 1.75rem;
 
         h1 {
           font-weight: 400;
@@ -37,12 +40,13 @@
     }
 
     .navCSS {
+      font-weight: 600;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 2rem;
 
-      font-size: 1.25rem;
+      font-size: 1rem;
       transition: 0.25s;
 
       a {

@@ -1,6 +1,9 @@
 @import "../styles/variables.scss";
 
 .layoutCSS {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   background-color: $bgColor;
   color: $textColor;
 
