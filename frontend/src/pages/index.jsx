@@ -110,7 +110,7 @@ export const query = graphql`
       }
     }
 
-    projectsList: allSanityProject(sort: { _createdAt: ASC }) {
+    projectsList: allSanityProject(sort: { _createdAt: DESC }) {
       nodes {
         title
         slug {
