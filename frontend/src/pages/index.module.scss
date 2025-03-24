@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: 4rem;
 
+  section {
+    scroll-margin-top: 74px;
+  }
+
   .toTopCSS {
     position: fixed;
     bottom: 35px;
@@ -26,3 +30,4 @@
     }
   }
 }
+
